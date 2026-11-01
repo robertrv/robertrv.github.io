@@ -1,0 +1,27 @@
+{%- comment -%}
+  Read-only comments imported from robertrv.wordpress.com (see _data/comments.json).
+{%- endcomment -%}
+{%- assign comments = site.data.comments[page.url] -%}
+{%- if comments -%}
+<section class="archived-comments">
+  <h2>{{ comments | size }} comment{% if comments.size != 1 %}s{% endif %}</h2>
+  <p class="archived-comments-note">Comments from the original WordPress blog. New comments are closed.</p>
+  {%- for comment in comments %}
+  <div class="archived-comment">
+    <p class="archived-comment-meta">
+      <strong>{{ comment.author | escape }}</strong>
+      {%- if comment.reply_to %} <span>in reply to {{ comment.reply_to | escape }}</span>{% endif %}
+      · <time datetime="{{ comment.date }}">{{ comment.date | date: "%b %-d, %Y" }}</time>
+    </p>
+    <p>{{ comment.text | escape | newline_to_br }}</p>
+  </div>
+  {%- endfor %}
+</section>
+<style>
+  .archived-comments { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e8e8e8; }
+  .archived-comments-note { color: #828282; font-size: 0.9em; }
+  .archived-comment { margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+  .archived-comment-meta { color: #828282; font-size: 0.9em; margin-bottom: 0.25rem; }
+  .archived-comment-meta strong { color: #111; }
+</style>
+{%- endif -%}
