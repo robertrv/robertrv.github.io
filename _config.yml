@@ -1,0 +1,25 @@
+title: "blog or not blog?"
+description: "mind the bridge!"
+author:
+  name: "Robert Ramírez Vique"
+url: "https://robertrv.github.io"
+baseurl: ""
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Keep the old WordPress URL structure: /2014/04/10/again-london/
+permalink: /:year/:month/:day/:title/
+excerpt_separator: "<!--more-->"
+show_excerpts: true
+
+minima:
+  social_links:
+    github: robertrv
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
